@@ -1,0 +1,110 @@
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.search {
+  width: 300px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.profile {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* CATEGORY BAR */
+.category-bar {
+  display: flex;
+  overflow-x: auto;
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+  gap: 1rem;
+  white-space: nowrap;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+  font-size: 0.85rem;
+  color: #444;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.category:hover {
+  color: #000;
+  font-weight: 500;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+/* KARTY - już były, nie trzeba zmieniać */
+.karty {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+form {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+form h2 {
+  margin-top: 0;
+}
+
+form label {
+  font-weight: 500;
+}
+
+form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form button {
+  padding: 0.75rem;
+  font-weight: bold;
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+form button:hover {
+  background-color: #e11d48;
+}
+form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
