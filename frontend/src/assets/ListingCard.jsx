@@ -8,6 +8,10 @@ function ListingCard({ image, title, location, price, rating }) {
         <div className="flex justify-between items-center mt-2">
           <p className="text-lg font-bold">{price} zł / noc</p>
           <span className="text-yellow-500">⭐ {rating}</span>
+          <Link to={`/listing/${id}`}>
+  {/* zawartość karty */}
+</Link>
+
         </div>
       </div>
     </div>
