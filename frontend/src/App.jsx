@@ -1,8 +1,8 @@
 import './App.css';
-import { useNavigate } from 'react-router-dom';
-<Route path="/listing/:id" element={<ListingDetails />} />
+import { useNavigate, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-// Komponent: Pasek nawigacji
+// Component: Navbar
 function Navbar() {
   return (
     <div className="navbar">
@@ -13,7 +13,7 @@ function Navbar() {
   );
 }
 
-// Komponent: Pasek kategorii
+// Component: CategoryBar
 function CategoryBar() {
   const categories = [
     { icon: "🏠", name: "Małe domki" },
@@ -39,7 +39,7 @@ function CategoryBar() {
   );
 }
 
-// Komponent: Karta z ofertą
+// Component: Card
 function Card({ id, image, title, location, price, rating }) {
   const navigate = useNavigate();
 
@@ -58,35 +58,20 @@ function Card({ id, image, title, location, price, rating }) {
   );
 }
 
-
-// Główna aplikacja
+// Main Application
 function App() {
-  const listings = [
-    {
-      id:1,
-      image: '/image.jpg',
-      title: 'Domek w lesie',
-      location: 'Powiat kartuski, Polska',
-      price: 622,
-      rating: 4.92
-    },
-    {
-      id:2,
-      image: '/image.jpg',
-      title: 'Nowoczesny dom z ogrodem',
-      location: 'Borovnice, Czechy',
-      price: 278,
-      rating: 4.94
-    },
-    {
-      id:3,
-      image: '/image.jpg',
-      title: 'Domek nad jeziorem',
-      location: 'Komjatná, Słowacja',
-      price: 673,
-      rating: 4.9
+  const [listings, setListings] = useState([]);
+
+  useEffect(() => {
+    // Fetch listings dynamically from an API
+    async function fetchListings() {
+      const response = await fetch('/api/listings'); // Replace with your API endpoint
+      const data = await response.json();
+      setListings(data);
     }
-  ];
+
+    fetchListings();
+  }, []);
 
   return (
     <>
@@ -95,11 +80,14 @@ function App() {
       <div className="container">
         <h1 className="heading">Małe domki</h1>
         <div className="grid">
-          {listings.map((listing, idx) => (
-            <Card key={idx} {...listing} />
+          {listings.map((listing) => (
+            <Card key={listing.id} {...listing} />
           ))}
         </div>
       </div>
+      <Routes>
+        <Route path="/listing/:id" element={<ListingDetails />} />
+      </Routes>
     </>
   );
 }
