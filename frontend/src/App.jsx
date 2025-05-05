@@ -1,5 +1,6 @@
 import './App.css';
 import { useNavigate } from 'react-router-dom';
+<Route path="/listing/:id" element={<ListingDetails />} />
 
 // Komponent: Pasek nawigacji
 function Navbar() {
